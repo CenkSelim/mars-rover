@@ -1,14 +1,21 @@
 # mars-rover
-Mars Rover Kata - JavaScript - The Brief 
+## The Brief 
 
+Mars Rover Kata - JavaScript - The Brief 
 License: Attribution-NonCommercial-NoDerivatives 4.0 International 
- You are working in an Engineering Squad for the Mars Mission, tasked with designing software to manage robots and cool vehicles for space  exploration!  
+
+## Setting the Scene
+
+You are working in an Engineering Squad for the Mars Mission, tasked with designing software to manage robots and cool vehicles for space  exploration!  
 Your Task 
 Setting the Scene 
 You have been asked to create a program to move rovers around the surface of Mars!  
 The surface of Mars is represented by a Plateau, you can make the assumption that the Plateau is a square/rectangular grid for the purpose of  this task. 
 Rovers navigate the Plateau so they can use their special cameras and robot arms to collect samples back to Planet Earth  
 Representation of a Rover’s Position on the Plateau 
+
+## Addition information
+
 The Plateau is divided into a grid. A Rover’s position is represented by x and y co-ordinates and the letters N, S, W, E to represent North,  South, West, East (the four cardinal compass points) respectively. 
 Example 
 0 0 N 
@@ -24,8 +31,6 @@ R
 Spins the Rover 90 degrees Right without moving from the current  coordinate point/
 M 
 Moves the Rover forward by one grid point, maintaining the same  heading (i.e. from where the Rover is facing (its orientation)).
-
-
 
 N.B. Assume that the square directly North from (x, y) is (x, y+1). 
 Inputs into the Program
@@ -55,6 +60,9 @@ MMRMMRMRRM
 Expected Output: 
 1 3 N 
 5 1 E 
+
+## The solution
+
 Your Solution 
  Feel free to implement an approach that you feel comfortable with to receive input into your program e.g. feeding input values into unit tests;  input via a console application; supplying input via a file etc. 
  We would like you to apply Test-Driven Development (TDD) to test-drive your solution. 
