@@ -1,10 +1,14 @@
 import * as MARS from "../src/mars-plateau";
-
-describe('testing scafolding', () => {
+// 1. test Plateau creation
+describe('Set up plateau', () => {
         test.each`
-            x | y | total
-            ${1} | ${2}	| ${3}
-        `('add($x,$y) = $total', ({ x,y,total}) => {
-            expect(MARS.add(x,y)).toBe(total);
+            x | y | expexted
+            ${7} | ${9}	| ${{"x": 7, "y": 9}}
+            ${2} | ${2}	| ${{"x": 2, "y": 2}}
+            ${2} | ${2}	| ${{"x": 2, "y": 2}}
+            ${100} | ${100}	| ${{"x": 100, "y": 100}}
+        `('Plateau($x,$y) = $upper-right-x, upper-right-y', ({ x,y, expexted}) => {
+            let plateau: MARS.Plateau  = new MARS.Plateau(x,y);
+            expect(plateau).toEqual(expexted);
         });
 });
