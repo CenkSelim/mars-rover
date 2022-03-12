@@ -14,3 +14,6 @@ describe('Set up plateau', () => {
         });
 });
 
+// 2. test starting position for rover
+// 3. test rover orientation
+
