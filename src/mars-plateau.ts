@@ -6,8 +6,9 @@ const  MIN_y:number  = 0;
 export class Plateau {
         x: number;
         y: number;
-        constructor(x: number, y: number) {
-            this.x = (x <= MAX_X) && (x > MIN_X) ? x : MAX_X;
-            this.y = (y <= MAX_y) && (y > MIN_y) ? y : MAX_y;   
+        constructor(input: string) {
+            const size = input.split(' ').map(Number);
+            this.x = (size[0] <= MAX_X) && (size[0] > MIN_X) ? size[0] : MAX_X;
+            this.y = (size[1] <= MAX_y) && (size[1] > MIN_y) ? size[1] : MAX_y;   
         }
 }
