@@ -16,4 +16,18 @@ describe('Set up plateau', () => {
 
 // 2. test starting position for rover
 // 3. test rover orientation
+describe('Set up rover starting position', () => {
+        test.each`
+            input | expected
+            ${"0 0 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
+            ${"3 1 E"}	| ${{"x": 3, "y": 1, "facing": "E"}}
+            ${"1 3 W"}	| ${{"x": 1, "y": 3, "facing": "W"}}
+            ${"3 3 S"}	| ${{"x": 3, "y": 3, "facing": "S"}}
+            ${"-1 -5 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
+        `('Rover($input) = $expected', ({ input, expected}) => {
+            let rover: MARS.Rover  = new MARS.Rover(input);
+            expect(rover).toEqual(expected);
+        });
+});
 
+// 4. test rover movement
