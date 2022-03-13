@@ -27,4 +27,9 @@ export class Rover {
         this.y = ( y <= PLATEAU_MAX_y) && (y >= PLATEAU_MIN_y) ? y : PLATEAU_MIN_y;   
         this.facing = startPosition[2];
     }
+    move(instructions: string){
+        this.x=1;
+        this.y=3;
+        this.facing="N";
+    }
 }

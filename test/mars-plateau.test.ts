@@ -31,3 +31,13 @@ describe('Set up rover starting position', () => {
 });
 
 // 4. test rover movement
+describe('rover movement', () => {
+        test.each`
+            input | expected
+            ${"LMLMLMLMM"}	| ${{"x": 1, "y": 3, "facing": "N"}}
+        `('Rover($input) = $expected', ({ input, expected}) => {
+            let rover: MARS.Rover  = new MARS.Rover("1 2 N");
+            rover.move(input);
+            expect(rover).toEqual(expected);
+        });
+});
