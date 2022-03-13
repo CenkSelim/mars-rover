@@ -17,29 +17,33 @@ describe('Set up plateau', () => {
 // 2. test starting position for rover
 // 3. test rover orientation
 describe('Set up rover starting position', () => {
+        const plateau: MARS.Plateau  = new MARS.Plateau("5 5");
         test.each`
-            input | expected
+            startingPosition | expected
             ${"0 0 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
             ${"3 1 E"}	| ${{"x": 3, "y": 1, "facing": "E"}}
             ${"1 3 W"}	| ${{"x": 1, "y": 3, "facing": "W"}}
             ${"3 3 S"}	| ${{"x": 3, "y": 3, "facing": "S"}}
             ${"-1 -5 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
-        `('Rover($input) = $expected', ({ input, expected}) => {
-            let rover: MARS.Rover  = new MARS.Rover(input);           
-            expect(rover).toEqual(expected);
+        `('Rover($startingPosition) = $expected', ({ startingPosition, expected}) => {
+            let rover: MARS.Rover  = new MARS.Rover(plateau);
+            rover.setStartinPosition(startingPosition);             
+            expect({x:rover.x,y:rover.y,facing:rover.facing}).toEqual(expected);
         });
 });
 
 // 4. test rover movement
 describe('rover movement', () => {
+        const plateau: MARS.Plateau  = new MARS.Plateau("5 5");
         test.each`
             startingPosition | input | expected
             ${"1 2 N"} | ${"LMLMLMLMM"}	| ${{"x": 1, "y": 3, "facing": "N"}}
             ${"3 3 E"} | ${"MMRMMRMRRM"}	| ${{"x": 5, "y": 1, "facing": "E"}}
         `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
-            let rover: MARS.Rover  = new MARS.Rover(startingPosition);
+            let rover: MARS.Rover  = new MARS.Rover(plateau);
+            rover.setStartinPosition(startingPosition);
             rover.move(input);
-            expect(rover).toEqual(expected);
+            expect({x:rover.x,y:rover.y,facing:rover.facing}).toEqual(expected);
             console.log(`${rover.x} ${rover.y} ${rover.facing}`)
         });
 });

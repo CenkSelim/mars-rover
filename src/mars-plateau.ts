@@ -18,15 +18,21 @@ export class Rover {
         x: number;
         y: number;
         facing: string;
-    constructor(input: string) {
+        plateau: Plateau;
+    
+    constructor(plateau: Plateau){
+        this.plateau = plateau;
+    }
+    setStartinPosition(input: string) {
         const startPosition:string[] = input.split(' ');
         const x:number = Number(startPosition[0]);
         const y:number = Number(startPosition[1]);
         // Defaulting to min position of plateau if high or negative values added  
-        this.x = ( x <= PLATEAU_MAX_X) && (x >= PLATEAU_MIN_X) ? x : PLATEAU_MIN_X;
-        this.y = ( y <= PLATEAU_MAX_y) && (y >= PLATEAU_MIN_y) ? y : PLATEAU_MIN_y;   
+        this.x = ( x <= this.plateau.x) && (x >= PLATEAU_MIN_X) ? x : PLATEAU_MIN_X;
+        this.y = ( y <= this.plateau.y) && (y >= PLATEAU_MIN_y) ? y : PLATEAU_MIN_y;   
         this.facing = startPosition[2];
     }
+
     move(instructions: string){
         const instructionsList:string[] = instructions.split('');
         instructionsList.forEach(instruction => {
