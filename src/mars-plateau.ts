@@ -28,8 +28,68 @@ export class Rover {
         this.facing = startPosition[2];
     }
     move(instructions: string){
-        this.x=1;
-        this.y=3;
-        this.facing="N";
+        const instructionsList:string[] = instructions.split('');
+        instructionsList.forEach(instruction => {
+            switch (instruction) {
+                case "L": // 90 degrees left
+                    this.moveLeft();
+                    break;
+                case "R": // 90 degrees right
+                    this.moveRight();
+                    break;
+                case "M": // move forward in direction facing
+                    this.moveForward();
+                    break;
+            }
+        });
+        console.log(`${this.x} ${this.y} ${this.facing}`)
+    }
+    moveLeft(){
+        switch (this.facing) {
+            case "N":
+                this.facing = "W"
+                break;       
+            case "E":
+                this.facing = "N"                
+                break;
+            case "W":
+                this.facing = "S"                
+                break;       
+            case "S":
+                this.facing = "E"
+                break;       
+        }
+    }
+    moveRight(){
+        switch (this.facing) {
+            case "N":
+                this.facing = "E"
+                break;       
+            case "E":
+                this.facing = "S"                
+                break;
+            case "W":
+                this.facing = "N"                
+                break;       
+            case "S":
+                this.facing = "W"
+                break;       
+        }
+    }
+    moveForward(){
+        switch (this.facing) {
+            case "N":
+                this.y +=1;
+                break;       
+            case "E":
+                this.x +=1;               
+                break;
+            case "W":
+                this.x -=1;               
+                break;       
+            case "S":
+                this.y -=1;
+                break;       
+        }
     }
 }
