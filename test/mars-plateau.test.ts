@@ -25,7 +25,7 @@ describe('Set up rover starting position', () => {
             ${"3 3 S"}	| ${{"x": 3, "y": 3, "facing": "S"}}
             ${"-1 -5 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
         `('Rover($input) = $expected', ({ input, expected}) => {
-            let rover: MARS.Rover  = new MARS.Rover(input);
+            let rover: MARS.Rover  = new MARS.Rover(input);           
             expect(rover).toEqual(expected);
         });
 });
@@ -33,11 +33,13 @@ describe('Set up rover starting position', () => {
 // 4. test rover movement
 describe('rover movement', () => {
         test.each`
-            input | expected
-            ${"LMLMLMLMM"}	| ${{"x": 1, "y": 3, "facing": "N"}}
-        `('Rover($input) = $expected', ({ input, expected}) => {
-            let rover: MARS.Rover  = new MARS.Rover("1 2 N");
+            startingPosition | input | expected
+            ${"1 2 N"} | ${"LMLMLMLMM"}	| ${{"x": 1, "y": 3, "facing": "N"}}
+            ${"3 3 E"} | ${"MMRMMRMRRM"}	| ${{"x": 5, "y": 1, "facing": "E"}}
+        `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
+            let rover: MARS.Rover  = new MARS.Rover(startingPosition);
             rover.move(input);
             expect(rover).toEqual(expected);
+            console.log(`${rover.x} ${rover.y} ${rover.facing}`)
         });
 });

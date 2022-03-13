@@ -42,7 +42,6 @@ export class Rover {
                     break;
             }
         });
-        console.log(`${this.x} ${this.y} ${this.facing}`)
     }
     moveLeft(){
         switch (this.facing) {
