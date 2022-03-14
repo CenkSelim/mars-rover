@@ -46,3 +46,17 @@ describe('rover movement', () => {
             expect(rover.move(input)).toEqual(expected);
         });
 });
+
+// 5. test to make sure rover does not go beyond edge of plateau
+describe('rover not to go beyond plateau edges', () => {
+        const plateau: Plateau  = new Plateau("5 5");
+        test.each`
+            startingPosition | input | expected
+            ${"5 5 N"} | ${"MMMLM"}	| ${"5 5 N"}
+            ${"3 3 E"} | ${"MMRMMRMRRMRMM"} | ${"5 1 S"}
+        `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
+            let rover: Rover  = new Rover(plateau);
+            rover.setStartinPosition(startingPosition);
+            expect(rover.move(input)).toEqual(expected);
+        });
+});
