@@ -71,7 +71,7 @@ describe('rover not to go beyond plateau edges', () => {
         });
 });
 // 6. Test to make sure it does not collide with the other rover 🏎️  
-describe('rover not to go beyond plateau edges', () => {
+describe('rovers not to collide', () => {
         const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition | input | expected
