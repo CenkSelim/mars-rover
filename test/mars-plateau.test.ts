@@ -62,7 +62,8 @@ describe('rover not to go beyond plateau edges', () => {
         test.each`
             startingPosition | input | expected
             ${"5 5 N"} | ${"MMMLM"}	| ${"5 5 N"}
-            ${"3 3 E"} | ${"MMRMMRMRRMRMM"} | ${"5 1 S"}
+            ${"3 3 E"} | ${"MMRMMRMRRMRMM"} | ${"5 0 S"}
+            ${"0 0 W"} | ${"MMRMMRMRRMRMM"} | ${"0 0 W"}
         `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
             let rover: Rover  = new Rover(plateau);
             rover.setStartinPosition(startingPosition);

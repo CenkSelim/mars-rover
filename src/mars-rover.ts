@@ -22,7 +22,7 @@ export class Rover {
 
     move(instructions: string): string {
         const instructionsList: string[] = instructions.split('');
-        instructionsList.forEach(instruction => {
+        instructionsList.some(instruction => {           
             switch (instruction) {
                 case "L": // 90 degrees left
                     this.moveLeft();
@@ -31,9 +31,11 @@ export class Rover {
                     this.moveRight();
                     break;
                 case "M": // move forward in direction facing
+                    if (this.isNotAValidMove()) return true;
                     this.moveForward();
                     break;
             }
+            
         });
         return (`${this.x} ${this.y} ${this.facing}`);
     }
@@ -72,17 +74,34 @@ export class Rover {
     moveForward() {
         switch (this.facing) {
             case "N":
-                this.y += 1;
+                if (this.y < this.plateau.y) this.y += 1;
                 break;
             case "E":
-                this.x += 1;
+                if (this.x < this.plateau.x) this.x += 1;
                 break;
             case "W":
-                this.x -= 1;
+                if (this.x > PLATEAU_MIN_X) this.x -= 1;
                 break;
             case "S":
-                this.y -= 1;
+                if (this.y > PLATEAU_MIN_y) this.y -= 1;
                 break;
         }
+    }
+    isNotAValidMove(): boolean {
+        switch (this.facing) {
+            case "N":
+                if (this.y < this.plateau.y) return false;
+                break;
+            case "E":
+                if (this.x < this.plateau.x) return false;
+                break;
+            case "W":
+                if (this.x > PLATEAU_MIN_X) return false;
+                break;
+            case "S":
+                if (this.y > PLATEAU_MIN_y) return false;
+                break;
+        }
+        return true;
     }
 }
