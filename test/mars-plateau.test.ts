@@ -46,8 +46,17 @@ describe('rover movement', () => {
             expect(rover.move(input)).toEqual(expected);
         });
 });
-
-// 5. test to make sure rover does not go beyond edge of plateau
+// 5. test to make sure rover does not go beyond edge of plateau ❌
+// 6. Test to make sure it does not collide with other 
+//     objects such as the other rover 🏎️ or even 👽
+// e.g 5 by 5 plateau or some other shape 🌝 === safe area to move
+// ❌❌❌❌❌❌❌   ❌❌❌❌❌❌❌
+// ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝🌝🌝❌
+// ❌🌝🌝🌝🌝🌝❌   ❌🌝👽🌝🌝🌝❌
+// ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🏎️🌝🌝❌
+// ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝👾🌝❌
+// ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝🌝🌝❌
+// ❌❌❌❌❌❌❌   ❌❌❌❌❌❌❌
 describe('rover not to go beyond plateau edges', () => {
         const plateau: Plateau  = new Plateau("5 5");
         test.each`
