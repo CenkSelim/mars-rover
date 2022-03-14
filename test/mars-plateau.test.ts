@@ -1,4 +1,5 @@
-import * as MARS from "../src/mars-plateau";
+import { Plateau } from "../src/mars-plateau";
+import { Rover } from "../src/mars-rover";
 // 1. test Plateau creation
 describe('Set up plateau', () => {
         test.each`
@@ -9,7 +10,7 @@ describe('Set up plateau', () => {
             ${"100 100"}	| ${{"x": 5, "y": 5}}
             ${"3 3"}	| ${{"x": 3, "y": 3}}
         `('Plateau($input) = $expected', ({ input, expected}) => {
-            let plateau: MARS.Plateau  = new MARS.Plateau(input);
+            let plateau: Plateau  = new Plateau(input);
             expect(plateau).toEqual(expected);
         });
 });
@@ -17,7 +18,7 @@ describe('Set up plateau', () => {
 // 2. test starting position for rover
 // 3. test rover orientation
 describe('Set up rover starting position', () => {
-        const plateau: MARS.Plateau  = new MARS.Plateau("5 5");
+        const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition | expected
             ${"0 0 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
@@ -26,7 +27,7 @@ describe('Set up rover starting position', () => {
             ${"3 3 S"}	| ${{"x": 3, "y": 3, "facing": "S"}}
             ${"-1 -5 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
         `('Rover($startingPosition) = $expected', ({ startingPosition, expected}) => {
-            let rover: MARS.Rover  = new MARS.Rover(plateau);
+            let rover: Rover  = new Rover(plateau);
             rover.setStartinPosition(startingPosition);             
             expect({x:rover.x,y:rover.y,facing:rover.facing}).toEqual(expected);
         });
@@ -34,13 +35,13 @@ describe('Set up rover starting position', () => {
 
 // 4. test rover movement
 describe('rover movement', () => {
-        const plateau: MARS.Plateau  = new MARS.Plateau("5 5");
+        const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition | input | expected
             ${"1 2 N"} | ${"LMLMLMLMM"}	| ${"1 3 N"}
             ${"3 3 E"} | ${"MMRMMRMRRM"} | ${"5 1 E"}
         `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
-            let rover: MARS.Rover  = new MARS.Rover(plateau);
+            let rover: Rover  = new Rover(plateau);
             rover.setStartinPosition(startingPosition);
             expect(rover.move(input)).toEqual(expected);
         });
