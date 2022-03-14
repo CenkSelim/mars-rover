@@ -37,13 +37,11 @@ describe('rover movement', () => {
         const plateau: MARS.Plateau  = new MARS.Plateau("5 5");
         test.each`
             startingPosition | input | expected
-            ${"1 2 N"} | ${"LMLMLMLMM"}	| ${{"x": 1, "y": 3, "facing": "N"}}
-            ${"3 3 E"} | ${"MMRMMRMRRM"}	| ${{"x": 5, "y": 1, "facing": "E"}}
+            ${"1 2 N"} | ${"LMLMLMLMM"}	| ${"1 3 N"}
+            ${"3 3 E"} | ${"MMRMMRMRRM"} | ${"5 1 E"}
         `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
             let rover: MARS.Rover  = new MARS.Rover(plateau);
             rover.setStartinPosition(startingPosition);
-            rover.move(input);
-            expect({x:rover.x,y:rover.y,facing:rover.facing}).toEqual(expected);
-            console.log(`${rover.x} ${rover.y} ${rover.facing}`)
+            expect(rover.move(input)).toEqual(expected);
         });
 });

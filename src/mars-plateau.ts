@@ -33,7 +33,7 @@ export class Rover {
         this.facing = startPosition[2];
     }
 
-    move(instructions: string){
+    move(instructions: string): string{
         const instructionsList:string[] = instructions.split('');
         instructionsList.forEach(instruction => {
             switch (instruction) {
@@ -48,6 +48,7 @@ export class Rover {
                     break;
             }
         });
+        return (`${this.x} ${this.y} ${this.facing}`);
     }
     moveLeft(){
         switch (this.facing) {
