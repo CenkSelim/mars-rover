@@ -1,4 +1,4 @@
-import { PLATEAU_MIN_X, PLATEAU_MIN_y } from "./plateau_min_max";
+import { PLATEAU_MIN_X, PLATEAU_MIN_Y } from "./plateau_min_max";
 import { Plateau } from "./mars-plateau";
 
 export class Rover {
@@ -16,7 +16,7 @@ export class Rover {
         const y: number = Number(startPosition[1]);
         // Defaulting to min position of plateau if high or negative values added  
         this.x = (x <= this.plateau.x) && (x >= PLATEAU_MIN_X) ? x : PLATEAU_MIN_X;
-        this.y = (y <= this.plateau.y) && (y >= PLATEAU_MIN_y) ? y : PLATEAU_MIN_y;
+        this.y = (y <= this.plateau.y) && (y >= PLATEAU_MIN_Y) ? y : PLATEAU_MIN_Y;
         this.facing = startPosition[2];
     }
 
@@ -83,7 +83,7 @@ export class Rover {
                 if (this.x > PLATEAU_MIN_X) this.x -= 1;
                 break;
             case "S":
-                if (this.y > PLATEAU_MIN_y) this.y -= 1;
+                if (this.y > PLATEAU_MIN_Y) this.y -= 1;
                 break;
         }
     }
@@ -99,7 +99,7 @@ export class Rover {
                 if (this.x > PLATEAU_MIN_X) return false;
                 break;
             case "S":
-                if (this.y > PLATEAU_MIN_y) return false;
+                if (this.y > PLATEAU_MIN_Y) return false;
                 break;
         }
         return true;
