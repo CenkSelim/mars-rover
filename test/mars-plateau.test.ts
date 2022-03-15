@@ -59,7 +59,7 @@ describe('rover movement', () => {
 // ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝👾🌝❌
 // ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝🌝🌝❌
 // ❌❌❌❌❌❌❌   ❌❌❌❌❌❌❌
-describe.only('rover not to go beyond plateau edges', () => {
+describe('rover not to go beyond plateau edges', () => {
         const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition | input | expected
@@ -77,11 +77,12 @@ describe('rovers not to collide', () => {
         const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition | input | expected
-            ${"2 3 E"} | ${"MMMLM"}	| ${"2 3 E"}
+            ${"2 3 E"} | ${"LMMMLM"}	| ${"2 3 N"}
         `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
             let rover1: Rover  = new Rover(plateau);
             rover1.setStartinPosition("2 4 N");
             rover1.move("LMLMLMLM"); // back to original
+            plateau.addObstacle(`${rover1.x} ${rover1.y}`); // 2 4
             let rover2: Rover  = new Rover(plateau);
             rover2.setStartinPosition(startingPosition);
             expect(rover2.move(input)).toEqual(expected);

@@ -88,20 +88,31 @@ export class Rover {
         }
     }
     isNotAValidMove(): boolean {
-        switch (this.facing) {
-            case "N":
-                if (this.y < this.#plateau.y) return false;
-                break;
-            case "E":
-                if (this.x < this.#plateau.x) return false;
-                break;
-            case "W":
-                if (this.x > PLATEAU_MIN_X) return false;
-                break;
-            case "S":
-                if (this.y > PLATEAU_MIN_Y) return false;
+      let notValidMove: boolean = false;
+        switch (true) {
+            case (this.facing ==="N") && (this.isObstacleNorth()):               
+            case (this.facing ==="E") && (this.isObstacleEast()):             
+            case (this.facing ==="W") && (this.isObstacleWest()):             
+            case (this.facing ==="S") && (this.isObstacleSouth()):             
+                notValidMove=true;
                 break;
         }
-        return true;
+        return notValidMove;
+    }
+
+    private isObstacleSouth() {
+        return this.#plateau.isThereAnObstacleHere(`${this.x} ${(this.y - 1)}`);
+    }
+
+    private isObstacleWest() {
+        return this.#plateau.isThereAnObstacleHere(`${this.x - 1} ${(this.y)}`);
+    }
+
+    private isObstacleEast() {
+        return this.#plateau.isThereAnObstacleHere(`${this.x + 1} ${(this.y)}`);
+    }
+
+    private isObstacleNorth() {
+        return this.#plateau.isThereAnObstacleHere(`${this.x} ${(this.y + 1)}`);
     }
 }

@@ -2,11 +2,11 @@
   "name": "mars-rover",
   "version": "1.0.0",
   "description": "Mars Rover Kata - JavaScript - The Brief",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx ts-node index.ts"
   },
-  "type": "module",
   "jest": {
     "transform": {},
     "preset": "ts-jest",
@@ -14,12 +14,13 @@
     "globals": {
       "ts-jest": {
         "diagnostics": {
-          "ignoreCodes": [151001]
+          "ignoreCodes": [
+            151001
+          ]
         }
       }
     }
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CenkSelim/mars-rover.git"
@@ -30,15 +31,14 @@
     "url": "https://github.com/CenkSelim/mars-rover/issues"
   },
   "homepage": "https://github.com/CenkSelim/mars-rover#readme",
-  "dependencies": {
-    "ts-node": "^10.7.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "eslint": "^8.10.0",
     "eslint-config-google": "^0.14.0",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.2"
   }
 }
