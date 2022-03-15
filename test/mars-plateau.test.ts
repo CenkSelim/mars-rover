@@ -3,15 +3,16 @@ import { Rover } from "../src/mars-rover";
 // 1. test Plateau creation
 describe('Set up plateau', () => {
         test.each`
-            input | expected
-            ${"7 9"}	| ${{"x": 5, "y": 5}}
-            ${"-2 2"}	| ${{"x": 5, "y": 2}}
-            ${"2 -2"}	| ${{"x": 2, "y": 5}}
-            ${"100 100"}	| ${{"x": 5, "y": 5}}
-            ${"3 3"}	| ${{"x": 3, "y": 3}}
-        `('Plateau($input) = $expected', ({ input, expected}) => {
+            input | expectedX | expectedY
+            ${"7 9"}	| ${7}  |${9}
+            ${"-2 2"}	| ${4}  |${4}
+            ${"2 -2"}	| ${4}  |${4}
+            ${"100 100"}	| ${100}  |${100}
+            ${"3 3"}	| ${4}  |${4}
+        `('Plateau($input) = $expectedX, $expectedY', ({ input, expectedX, expectedY}) => {
             let plateau: Plateau  = new Plateau(input);
-            expect(plateau).toEqual(expected);
+            expect(plateau.x).toBe(expectedX);
+            expect(plateau.y).toBe(expectedY);
         });
 });
 
