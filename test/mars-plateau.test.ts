@@ -79,7 +79,7 @@ describe('rovers not to collide', () => {
         `('Rover.move($input) = $expected', ({startingPosition, input, expected}) => {
             let rover1: Rover  = new Rover(plateau);
             rover1.setStartinPosition("2 4 N");
-            rover1.move("LMLMLML"); // back to original
+            rover1.move("LMLMLMLM"); // back to original
             let rover2: Rover  = new Rover(plateau);
             rover2.setStartinPosition(startingPosition);
             expect(rover2.move(input)).toEqual(expected);
