@@ -59,7 +59,7 @@ describe('rover movement', () => {
 // ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝👾🌝❌
 // ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝🌝🌝❌
 // ❌❌❌❌❌❌❌   ❌❌❌❌❌❌❌
-describe('rover not to go beyond plateau edges', () => {
+describe.only('rover not to go beyond plateau edges', () => {
         const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition | input | expected
@@ -73,7 +73,7 @@ describe('rover not to go beyond plateau edges', () => {
         });
 });
 // 6. Test to make sure it does not collide with the other rover 🏎️  
-describe.skip('rovers not to collide', () => {
+describe('rovers not to collide', () => {
         const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition | input | expected

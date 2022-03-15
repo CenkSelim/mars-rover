@@ -31,7 +31,7 @@ export class Rover {
                     this.moveRight();
                     break;
                 case "M": // move forward in direction facing
-                    if (this.isNotAValidMove()) return true;
+                    if (this.isNotAValidMove()) return true; // Stop moving
                     this.moveForward();
                     break;
             }
