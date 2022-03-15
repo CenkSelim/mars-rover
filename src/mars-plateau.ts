@@ -29,7 +29,7 @@ export class Plateau {
         this.#obstacles = this.#obstacles.filter(pos => pos !== obstaclePosition);
     }
 
-    getObstacleList() {
+    getObstacleList(): string[]{
      return this.#obstacles;
     }
     isThereAnObstacleHere(obstaclePosition: string): boolean{

@@ -100,19 +100,19 @@ export class Rover {
         return notValidMove;
     }
 
-    private isObstacleSouth() {
+    private isObstacleSouth(): boolean {
         return this.#plateau.isThereAnObstacleHere(`${this.x} ${(this.y - 1)}`);
     }
 
-    private isObstacleWest() {
+    private isObstacleWest(): boolean {
         return this.#plateau.isThereAnObstacleHere(`${this.x - 1} ${(this.y)}`);
     }
 
-    private isObstacleEast() {
+    private isObstacleEast(): boolean {
         return this.#plateau.isThereAnObstacleHere(`${this.x + 1} ${(this.y)}`);
     }
 
-    private isObstacleNorth() {
+    private isObstacleNorth(): boolean {
         return this.#plateau.isThereAnObstacleHere(`${this.x} ${(this.y + 1)}`);
     }
 }
