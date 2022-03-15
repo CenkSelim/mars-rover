@@ -5,18 +5,18 @@ export class Rover {
     x: number;
     y: number;
     facing: string;
-    plateau: Plateau;
+    #plateau: Plateau;
 
     constructor(plateau: Plateau) {
-        this.plateau = plateau;
+        this.#plateau = plateau;
     }
     setStartinPosition(input: string) {
         const startPosition: string[] = input.split(' ');
         const x: number = Number(startPosition[0]);
         const y: number = Number(startPosition[1]);
         // Defaulting to min position of plateau if high or negative values added  
-        this.x = (x <= this.plateau.x) && (x >= PLATEAU_MIN_X) ? x : PLATEAU_MIN_X;
-        this.y = (y <= this.plateau.y) && (y >= PLATEAU_MIN_Y) ? y : PLATEAU_MIN_Y;
+        this.x = (x <= this.#plateau.x) && (x >= PLATEAU_MIN_X) ? x : PLATEAU_MIN_X;
+        this.y = (y <= this.#plateau.y) && (y >= PLATEAU_MIN_Y) ? y : PLATEAU_MIN_Y;
         this.facing = startPosition[2];
     }
 
@@ -74,10 +74,10 @@ export class Rover {
     moveForward() {
         switch (this.facing) {
             case "N":
-                if (this.y < this.plateau.y) this.y += 1;
+                if (this.y < this.#plateau.y) this.y += 1;
                 break;
             case "E":
-                if (this.x < this.plateau.x) this.x += 1;
+                if (this.x < this.#plateau.x) this.x += 1;
                 break;
             case "W":
                 if (this.x > PLATEAU_MIN_X) this.x -= 1;
@@ -90,10 +90,10 @@ export class Rover {
     isNotAValidMove(): boolean {
         switch (this.facing) {
             case "N":
-                if (this.y < this.plateau.y) return false;
+                if (this.y < this.#plateau.y) return false;
                 break;
             case "E":
-                if (this.x < this.plateau.x) return false;
+                if (this.x < this.#plateau.x) return false;
                 break;
             case "W":
                 if (this.x > PLATEAU_MIN_X) return false;

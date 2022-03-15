@@ -3,6 +3,7 @@ import { PLATEAU_MINMAX_X, PLATEAU_MIN_X, PLATEAU_MINMAX_Y, PLATEAU_MIN_Y } from
 export class Plateau {
         x: number;
         y: number;
+        private obstacles: string[];
         constructor(input: string) {
             const size = input.split(' ').map(Number);
             // defaulting to max value if high or negative numbers
