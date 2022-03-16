@@ -12,3 +12,12 @@ describe('Input needs to be two numbers seperated by a space character', () => {
         expect(() => createPlateau(input)).toThrow("two numbers are required eg 5 5");
     });          
 });
+
+describe('Input needs to be two numbers and a compass point ie N or E or W or S', () => {
+    test.each`
+        input	
+        ${""}	
+    `('createPlateau($input)', ({input}) => {
+        expect(() => createRover(input)).toThrow("two numbers are required and a compass point ie N or E or W or S eg 3 2 E");
+    });          
+});
