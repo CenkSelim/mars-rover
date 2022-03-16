@@ -24,14 +24,6 @@ export class Plateau {
     addObstacle(obstaclePosition: string){
         if (this.#obstacles.indexOf(obstaclePosition)=== -1) this.#obstacles.push(obstaclePosition);       
     }
-
-    removeObstacle(obstaclePosition: string){
-        this.#obstacles = this.#obstacles.filter(pos => pos !== obstaclePosition);
-    }
-
-    getObstacleList(): string[]{
-     return this.#obstacles;
-    }
     isThereAnObstacleHere(obstaclePosition: string): boolean{
         if (!this.#obstacles || !this.#obstacles.length) {
             return false;
