@@ -24,6 +24,11 @@ export class Plateau {
     addObstacle(obstaclePosition: string){
         if (this.#obstacles.indexOf(obstaclePosition)=== -1) this.#obstacles.push(obstaclePosition);       
     }
+
+    getObstacleList(): string[]{
+     return this.#obstacles;
+    }
+    
     isThereAnObstacleHere(obstaclePosition: string): boolean{
         return this.#obstacles.some(pos => pos === obstaclePosition)
     }
