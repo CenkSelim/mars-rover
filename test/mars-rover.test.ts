@@ -88,7 +88,7 @@ describe('Rover not to go beyond plateau edges', () => {
         });
 });
 // 6. Test to make sure rover does not collide with the other rover 🏎️  
-describe('rovers not to collide', () => {
+describe('Rovers not to collide', () => {
         const plateau: Plateau  = new Plateau("5 5");
         test.each`
             startingPosition    | input         | otherRoverPos    | expected
@@ -100,6 +100,22 @@ describe('rovers not to collide', () => {
             let rover1: Rover  = new Rover(plateau);
             rover1.setStartinPosition(otherRoverPos);
             plateau.addObstacle(`${rover1.x} ${rover1.y}`); 
+            let rover2: Rover  = new Rover(plateau);
+            rover2.setStartinPosition(startingPosition);
+            expect(rover2.move(input)).toEqual(expected);
+        });
+});
+// 7. Test to make sure rover does not collide with another object  
+describe('Rovers not to collide with another object', () => {
+        const plateau: Plateau  = new Plateau("5 5");
+        test.each`
+            startingPosition    | input         | otherObjectPos    | expected
+            ${"2 3 E"}          | ${"LMMMLM"}	|  ${"2 4"}       | ${"2 3 N"}
+            ${"0 0 E"}          | ${"MMMMM"}	|  ${"4 0"}       | ${"3 0 E"}
+            ${"2 3 N"}          | ${"MMMLM"}	|  ${"2 4"}       | ${"2 3 N"}
+            ${"1 1 S"}          | ${"RRMMMLM"}	|  ${"1 4"}       | ${"1 3 N"}
+        `('Rover.move($input) = $expected', ({startingPosition, input, otherObjectPos, expected}) => {      
+            plateau.addObstacle(otherObjectPos); 
             let rover2: Rover  = new Rover(plateau);
             rover2.setStartinPosition(startingPosition);
             expect(rover2.move(input)).toEqual(expected);
