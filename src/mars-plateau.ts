@@ -25,9 +25,6 @@ export class Plateau {
         if (this.#obstacles.indexOf(obstaclePosition)=== -1) this.#obstacles.push(obstaclePosition);       
     }
     isThereAnObstacleHere(obstaclePosition: string): boolean{
-        if (!this.#obstacles || !this.#obstacles.length) {
-            return false;
-        }
         return this.#obstacles.some(pos => pos === obstaclePosition)
     }
 }
