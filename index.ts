@@ -8,19 +8,19 @@ import { Rover } from "./src/mars-rover";
 const DIRECTION_FACING = ['N', 'E', 'W', 'S']; 
 const MOVING_COMMANDS = ['L', 'F', 'M']; 
 
-export const createPlateau = (input: string):Plateau => {
+export const checkPlateauCommand = (input: string) : true    => {
     checkXandY(input,2,ERROR_MESSAGE_PLATEAU);  
-    return new Plateau(input);
+    return true;
 } 
 
-export const createRover = (input: string, plateau: Plateau):Rover => {
+export const checkRoverStartingPos = (input: string):boolean => {
     checkXandY(input,3,ERROR_MESSAGE_ROVER);   
     const facing = input.split(' ').map((x)=>x)[2];
     if (DIRECTION_FACING.indexOf(facing) === -1) throw new Error(ERROR_MESSAGE_ROVER);
-    return new Rover(plateau);
+    return true;
 } 
 
-function checkXandY(input: string, noOfVariables: number, error_message: string) {
+const checkXandY = (input: string, noOfVariables: number, error_message: string) : boolean=>{
     if (input === '')
         throw new Error(error_message);
     const size = input.split(' ').map(Number);
@@ -28,5 +28,6 @@ function checkXandY(input: string, noOfVariables: number, error_message: string)
         throw new Error(error_message);
     if ((Number.isNaN(size[0])) || (Number.isNaN(size[1])))
         throw new Error(error_message);
+    return true;
 }
 
