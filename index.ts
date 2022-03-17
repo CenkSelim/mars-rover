@@ -4,8 +4,9 @@ import { Rover } from "./src/mars-rover";
 
 // This the node console app starting point need a plateau and two rovers
 // 
-
+//
 const DIRECTION_FACING = ['N', 'E', 'W', 'S']; 
+const MOVING_COMMANDS = ['L', 'F', 'M']; 
 
 export const createPlateau = (input: string):Plateau => {
     checkXandY(input,2,ERROR_MESSAGE_PLATEAU);  
