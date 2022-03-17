@@ -1,9 +1,12 @@
-import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../index"
+import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../src/check-command";
 import { Plateau } from "../src/mars-plateau"
-import {ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT} from "../error_messages"
+import {ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT} from "../src/error-messages"
+
+// Validity of plateau creation and rover position tests in plateau and rover test files
 // 1. Test invalid input for the plateau size x by y
 // 2. Test invalid input for the rover initial location x any y and direction facing
 // 3. Test invalid movement commands for rover
+
 describe('Input needs to be two numbers seperated by a space character', () => {
     test.each`
         input	

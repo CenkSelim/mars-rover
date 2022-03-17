@@ -1,4 +1,4 @@
-import { PLATEAU_MINMAX_X, PLATEAU_MIN_X, PLATEAU_MINMAX_Y, PLATEAU_MIN_Y } from "./plateau_min_max";
+import { PLATEAU_MINMAX_X, PLATEAU_MIN_X, PLATEAU_MINMAX_Y, PLATEAU_MIN_Y } from "./plateau-min-max";
 
 export class Plateau {
     x: number;

@@ -1,4 +1,4 @@
-import { PLATEAU_MIN_X, PLATEAU_MIN_Y } from "./plateau_min_max";
+import { PLATEAU_MIN_X, PLATEAU_MIN_Y } from "./plateau-min-max";
 import { Plateau } from "./mars-plateau";
 
 export class Rover {
