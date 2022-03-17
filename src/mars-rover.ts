@@ -2,9 +2,9 @@ import { PLATEAU_MIN_X, PLATEAU_MIN_Y } from "./plateau-min-max";
 import { Plateau } from "./mars-plateau";
 
 export class Rover {
-    x: number;
-    y: number;
-    facing: string;
+    x: number = 0;
+    y: number = 0;
+    facing: string = "";
     #plateau: Plateau;
 
     constructor(plateau: Plateau) {
