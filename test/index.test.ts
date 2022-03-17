@@ -1,4 +1,4 @@
-import { checkPlateauCommand, checkRoverStartingPos } from "../index"
+import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../index"
 import { Plateau } from "../src/mars-plateau"
 import {ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT} from "../error_messages"
 // 1. Test invalid input for the plateau size x by y
@@ -33,18 +33,19 @@ describe('Input needs to be two numbers and a compass point ie N or E or W or S'
     });          
 });
 
-// // 3. Test invalid movement commands for rover
-// describe('Input needs to be a string of characters made up of M,L and R only', () => {
-//     test.each`
-//         input	
-//         ${""}
-//         ${" MMMM"}	
-//         ${"5LLL"}
-//         ${"SR5"}
-//         ${"$$$$$$$"}
-//         ${"MMMMMMD"}
-//         ${"LLLLLLSRR"}
-//     `('checkRoverMovement($input)', ({input}) => {
-//         expect(() => checkRoverMovement(input)).toThrow(ERROR_MESSAGE_MOVEMENT);
-//     });          
-// });
+// 3. Test invalid movement commands for rover
+describe('Input needs to be a string of characters made up of M,L and R only', () => {
+    test.each`
+        input	
+        ${""}
+        ${" MMMM"}	
+        ${"5LLL"}
+        ${"SR5"}
+        ${"$$$$$$$"}
+        ${"MMMMMMD"}
+        ${"LLLLLLSRR"}
+        ${"LMR "}
+    `('checkRoverMovement($input)', ({input}) => {
+        expect(() => checkRoverMovement(input)).toThrow(ERROR_MESSAGE_MOVEMENT);
+    });          
+});

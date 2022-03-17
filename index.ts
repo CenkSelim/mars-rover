@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER } from "./error_messages";
+import { ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT } from "./error_messages";
 import { Plateau } from "./src/mars-plateau"
 import { Rover } from "./src/mars-rover";
 
@@ -30,4 +30,12 @@ const checkXandY = (input: string, noOfVariables: number, error_message: string)
         throw new Error(error_message);
     return true;
 }
+
+export const checkRoverMovement = (input: string): boolean    => {
+    if (input === '')
+        throw new Error(ERROR_MESSAGE_MOVEMENT);
+     if (input.match('[^LMR]'))
+        throw new Error(ERROR_MESSAGE_MOVEMENT);
+    return true;
+} 
 
