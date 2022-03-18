@@ -1,4 +1,42 @@
 # mars-rover
+
+## Creating your application
+
+This app runs in the console.
+
+👉 First, fork and clone this repository.
+
+👉 Then run this command:
+
+```
+npm install
+```
+
+👉 You can then run
+
+```
+npm start
+```
+
+You should see a welcome message and a prompt enter 'y' to process the commands or 'q' to exit the app.
+
+After processing the commands an output of the final position of the rovers will be output to the console.
+
+The command.txt contains the commands which will be process, the commands file needs to be edited for new commands to be executed, at the moment it is designed to take one for the plateau and two commands for two rovers.
+
+
+## Improvements for other vehicles
+
+There are couple areas that need to be looked at when implementing other vehicles, the move and startingPosition;
+for the move thing to consider are 
+
+is it a flying vechicle?
+
+does it rotate at a different angle to 90 degrees?
+
+for the plateau shape, this can be controlled by adding/removing objects.
+
+
 ## The Brief 
 
 Mars Rover Kata - JavaScript - The Brief
@@ -20,6 +58,7 @@ The surface of Mars is represented by a Plateau, you can make the assumption tha
 Rovers navigate the Plateau so they can use their special cameras and robot arms to collect samples back to Planet Earth  
 
 Representation of a Rover’s Position on the Plateau 
+
 
 ## Addition information
 
@@ -116,30 +155,6 @@ Your Solution
  Feel free to implement an approach that you feel comfortable with to receive input into your program e.g. feeding input values into unit tests;  input via a console application; supplying input via a file etc. 
 
  We would like you to apply Test-Driven Development (TDD) to test-drive your solution. 
-
- We would like to see production-quality code, this means you have thought carefully about your code design and that your code is clean and  well-tested. 
-
- We’d love to see good unit test coverage and all unit tests passing. 
-
- Top Tips 
-
-Sketch / plan out your ideas first, we recommend starting off by modelling / diagramming what you might need and getting initial ideas  down on paper.
-
-Commit into your Github repository frequently and with descriptive commit messages. 
-
-Write a descriptive README to document the key features of your solution, your assumptions, approaches and future thoughts. Note down future thoughts / considerations: 
-
-You can make the assumption that the Plateau is rectangular, but be sure to have a think about how easily your program can be  extended upon in the future to support a different shaped Plateau. 
-
-How might your Plateau support other vehicles and not just Rovers? 
-
- How do I make a submission? 
-
-1 Please attach a file containing your sketches/diagrams and any initial ideas on how you might approach the Mars Rover Kata. Once submitted,  we can provide feedback to you before you start coding up your solution. 
-
-THEN… 
-
-2 Please attach a link to your GitHub repository containing your final Mars Rover Kata code solution. 
 
 This Mars Rover Kata brief was inspired by https://kata-log.rocks/mars-rover-kata. 
 

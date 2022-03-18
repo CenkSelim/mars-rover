@@ -21,7 +21,7 @@ export function startHere(message: string = ''): void {
     
 function processCommands(answer: string): void {
 
-    if (answer.toLowerCase()==="n") {
+    if (answer.toLowerCase()==="q") {
         process.exit();
     }
 
