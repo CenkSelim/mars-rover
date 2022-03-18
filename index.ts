@@ -16,7 +16,7 @@ export function startHere(message: string = ''): void {
         print(message);
         print(`|*************|`);  
     }
-	askQuestion(`Is "${COMMANDS_FILE}" ready to be processed? `, processCommands);
+	askQuestion(`Is "${COMMANDS_FILE}" ready to be processed? (y or q) `, processCommands);
 }
     
 function processCommands(answer: string): void {
@@ -24,15 +24,17 @@ function processCommands(answer: string): void {
     if (answer.toLowerCase()==="q") {
         process.exit();
     }
-
-    try {
-        const data = readFileSync(COMMANDS_FILE, 'utf8');
-        return processingCommands(data);
-    } catch (err) {
-        if (err instanceof Error) {
-            return startHere(err.message);
+    if (answer.toLowerCase()==="y") {
+        try {
+            const data = readFileSync(COMMANDS_FILE, 'utf8');
+            return processingCommands(data);
+        } catch (err) {
+            if (err instanceof Error) {
+                return startHere(err.message);
+            }
         }
     }
+    return startHere();
 } 
 
 startHere();
