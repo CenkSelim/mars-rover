@@ -14,3 +14,7 @@ export const plateauCommandReport = (command: string): string => {
     }
     return reportLine;
 };
+
+export const roverStartingPosCommandReport = (command: string): string => {
+    return " X";
+}
