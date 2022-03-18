@@ -16,5 +16,15 @@ export const plateauCommandReport = (command: string): string => {
 };
 
 export const roverStartingPosCommandReport = (command: string): string => {
-    return " X";
+   let reportLine: string = "";
+    try {
+        if (checkRoverStartingPos(command)) reportLine = (`${command} √`) ; 
+    } catch (e) { 
+        if (e.message === ERROR_MESSAGE_ROVER) {
+            reportLine = (`${command} X`) ;
+        } else {
+            reportLine = e.message;
+        }
+    }
+    return reportLine;
 }
