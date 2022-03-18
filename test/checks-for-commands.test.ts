@@ -1,4 +1,4 @@
-import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../src/check-command";
+import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../src/checks-for-commands";
 import { Plateau } from "../src/mars-plateau"
 import {ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT} from "../src/error-messages"
 

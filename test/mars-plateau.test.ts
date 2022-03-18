@@ -1,5 +1,4 @@
 import { Plateau } from "../src/mars-plateau";
-import { Rover } from "../src/mars-rover";
 // 1. Test Plateau creation
 //    default to min 4 X 4 plateau to allow rovers to move about
 // ❌❌❌❌❌❌❌   

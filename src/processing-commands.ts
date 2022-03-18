@@ -1,4 +1,3 @@
-import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../src/checks-for-commands";
 import { startHere } from "../index";
 import chalk from 'chalk';
 
@@ -16,4 +15,3 @@ export const checkAndExecute = (arr: string[]): string => {
     chalk.level = 1;
     return chalk.yellow("   all ok √\r\n Output: ");
 }
-

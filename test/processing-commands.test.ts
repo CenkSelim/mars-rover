@@ -1,5 +1,5 @@
 
-import {processingCommands} from "../src/processing-commands"
+import { plateauCommandReport } from "../src/commands-reports";
 
 // 1. Check plateau command and report 
 // 2. Check rover position command and report
