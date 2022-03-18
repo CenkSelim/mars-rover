@@ -32,10 +32,15 @@ const executeCommands = (arr: string[]): string => {
     let output: string = "";
     let plateau: Plateau  = new Plateau(arr[0]);
     for (let index = 1; index < arr.length; index +=2) {
-        let rover: Rover  = new Rover(plateau);
-        rover.setStartinPosition(arr[index]);
-        output += `\r\n ${rover.move(arr[index + 1])} `;
-        plateau.addObstacle(`${rover.x} ${rover.y}`); 
+        const xy = arr[index].split(' ').map(Number);
+        if (plateau.isThereAnObstacleHere(`${xy[0]} ${xy[1]}`)){
+            output += `\r\n ${xy[0]} ${xy[1]} Already an object here `;
+        }else{
+            let rover: Rover  = new Rover(plateau);
+            rover.setStartinPosition(arr[index]);
+            output += `\r\n ${rover.move(arr[index + 1])} `;
+            plateau.addObstacle(`${rover.x} ${rover.y}`);
+        } 
     }
     return output;
 }
