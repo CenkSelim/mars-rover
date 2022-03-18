@@ -1,6 +1,4 @@
-import { Plateau } from "./mars-plateau";
-import { Rover } from "./mars-rover";
-import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "./checks-for-commands";
+import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../src/checks-for-commands";
 import { startHere } from "../index";
 import chalk from 'chalk';
 
@@ -14,8 +12,8 @@ export function processingCommands(data: string):  void {
     const report = checkAndExecute(arr);
     return startHere(report);
 }
-function checkAndExecute(arr: string[]) {
-   chalk.level = 1;
+export const checkAndExecute = (arr: string[]): string => {
+    chalk.level = 1;
     return chalk.yellow("   all ok √\r\n Output: ");
 }
 
