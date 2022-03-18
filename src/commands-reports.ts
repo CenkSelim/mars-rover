@@ -28,3 +28,7 @@ export const roverStartingPosCommandReport = (command: string): string => {
     }
     return reportLine;
 }
+
+export const roverMovementCommandsReport = (command: string): string => {
+    return " X";
+}

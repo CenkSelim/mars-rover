@@ -1,5 +1,7 @@
 
-import { plateauCommandReport, roverStartingPosCommandReport } from "../src/commands-reports";
+import { plateauCommandReport, 
+    roverStartingPosCommandReport, 
+    roverMovementCommandsReport } from "../src/commands-reports";
 
 // 1. Check plateau command and report 
 // 2. Check rover position command and report
@@ -39,6 +41,6 @@ describe('Check rover movement and report', () => {
         input	| expected
         ${""}	| ${" X"}
     `('roverMovementCommandReport($input) ', ({ input, expected }) => {
-        expect(roverMovementCommandReport(input)).toEqual(expected);
+        expect(roverMovementCommandsReport(input)).toEqual(expected);
     });    
 });
