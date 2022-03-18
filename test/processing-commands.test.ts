@@ -40,6 +40,10 @@ describe('Check rover movement and report', () => {
     test.each`
         input	| expected
         ${""}	| ${" X"}
+        ${"S"}	| ${"S X"}
+        ${"SLMMMM"}	| ${"SLMMMM X"}
+        ${"LMMMM"}	| ${"LMMMM √"}
+        ${"LMMMMRMLLLMR"}	| ${"LMMMMRMLLLMR √"}    
     `('roverMovementCommandReport($input) ', ({ input, expected }) => {
         expect(roverMovementCommandsReport(input)).toEqual(expected);
     });    
