@@ -4,7 +4,7 @@ const DIRECTION_FACING = ['N', 'E', 'W', 'S'];
 const MOVING_COMMANDS = ['L', 'F', 'M']; 
 
 
-export const checkPlateauCommand = (input: string): true => {
+export const checkPlateauCommand = (input: string): boolean => {
     checkXandY(input, 2, ERROR_MESSAGE_PLATEAU);
     return true;
 };

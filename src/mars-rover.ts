@@ -1,22 +1,30 @@
 import { PLATEAU_MIN_X, PLATEAU_MIN_Y } from "./plateau-min-max";
 import { Plateau } from "./mars-plateau";
 
-export class Rover {
+interface ExploratoryVehicle {
+        x: number;
+        y: number;
+        facing: string;
+        plateau: Plateau;
+        setStartinPosition(input: string): void;
+        move(instructions: string): string 
+    }
+export class Rover implements ExploratoryVehicle{
     x: number = 0;
     y: number = 0;
     facing: string = "";
-    #plateau: Plateau;
+    plateau: Plateau;
 
     constructor(plateau: Plateau) {
-        this.#plateau = plateau;
+        this.plateau = plateau;
     }
-    setStartinPosition(input: string) {
+    setStartinPosition(input: string): void {
         const startPosition: string[] = input.split(' ');
         const x: number = Number(startPosition[0]);
         const y: number = Number(startPosition[1]);
         // Defaulting to min position of plateau if high or negative values added  
-        this.x = (x <= this.#plateau.x) && (x >= PLATEAU_MIN_X) ? x : PLATEAU_MIN_X;
-        this.y = (y <= this.#plateau.y) && (y >= PLATEAU_MIN_Y) ? y : PLATEAU_MIN_Y;
+        this.x = (x <= this.plateau.x) && (x >= PLATEAU_MIN_X) ? x : PLATEAU_MIN_X;
+        this.y = (y <= this.plateau.y) && (y >= PLATEAU_MIN_Y) ? y : PLATEAU_MIN_Y;
         this.facing = startPosition[2];
     }
 
@@ -39,7 +47,7 @@ export class Rover {
         });
         return (`${this.x} ${this.y} ${this.facing}`);
     }
-    moveLeft() {
+    moveLeft(): void {
         switch (this.facing) {
             case "N":
                 this.facing = "W";
@@ -55,7 +63,7 @@ export class Rover {
                 break;
         }
     }
-    moveRight() {
+    moveRight(): void {
         switch (this.facing) {
             case "N":
                 this.facing = "E";
@@ -71,13 +79,13 @@ export class Rover {
                 break;
         }
     }
-    moveForward() {
+    moveForward(): void {
         switch (this.facing) {
             case "N":
-                if (this.y < this.#plateau.y) this.y += 1;
+                if (this.y < this.plateau.y) this.y += 1;
                 break;
             case "E":
-                if (this.x < this.#plateau.x) this.x += 1;
+                if (this.x < this.plateau.x) this.x += 1;
                 break;
             case "W":
                 if (this.x > PLATEAU_MIN_X) this.x -= 1;
@@ -101,18 +109,18 @@ export class Rover {
     }
 
     private isObstacleSouth(): boolean {
-        return this.#plateau.isThereAnObstacleHere(`${this.x} ${(this.y - 1)}`);
+        return this.plateau.isThereAnObstacleHere(`${this.x} ${(this.y - 1)}`);
     }
 
     private isObstacleWest(): boolean {
-        return this.#plateau.isThereAnObstacleHere(`${this.x - 1} ${(this.y)}`);
+        return this.plateau.isThereAnObstacleHere(`${this.x - 1} ${(this.y)}`);
     }
 
     private isObstacleEast(): boolean {
-        return this.#plateau.isThereAnObstacleHere(`${this.x + 1} ${(this.y)}`);
+        return this.plateau.isThereAnObstacleHere(`${this.x + 1} ${(this.y)}`);
     }
 
     private isObstacleNorth(): boolean {
-        return this.#plateau.isThereAnObstacleHere(`${this.x} ${(this.y + 1)}`);
+        return this.plateau.isThereAnObstacleHere(`${this.x} ${(this.y + 1)}`);
     }
 }

@@ -1,6 +1,11 @@
 import { PLATEAU_MINMAX_X, PLATEAU_MIN_X, PLATEAU_MINMAX_Y, PLATEAU_MIN_Y } from "./plateau-min-max";
 
-export class Plateau {
+interface Surface {
+        x: number;
+        y: number;
+        addObstacle(obstaclePosition: string): void 
+    }
+export class Plateau implements Surface{
     x: number;
     y: number;
     #obstacles: string[]  = [];
@@ -21,7 +26,7 @@ export class Plateau {
         }
     }
 
-    addObstacle(obstaclePosition: string){
+    addObstacle(obstaclePosition: string): void{
         if (this.#obstacles.indexOf(obstaclePosition)=== -1) this.#obstacles.push(obstaclePosition);       
     }
 

@@ -1,3 +1,4 @@
+import { TestWatcher } from "jest";
 import { Plateau } from "../src/mars-plateau";
 import { Rover } from "../src/mars-rover";
 
@@ -29,8 +30,9 @@ describe('Set up rover starting position', () => {
             ${"-1 -5 N"}	| ${{"x": 0, "y": 0, "facing": "N"}}
         `('Rover($startingPosition) = $expected', ({ startingPosition, expected}) => {
             let rover: Rover  = new Rover(plateau);
-            rover.setStartinPosition(startingPosition);             
-            expect(rover).toEqual(expected);
+            rover.setStartinPosition(startingPosition); 
+            let vehicle = {"x":rover.x, "y":rover.y, "facing":rover.facing};            
+            expect(vehicle).toEqual(expected);
         });
 });
 

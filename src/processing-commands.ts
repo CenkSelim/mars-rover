@@ -1,5 +1,5 @@
 import { startHere } from "../index";
-import {plateauCommandReport, roverMovementCommandsReport, roverStartingPosCommandReport} from "./commands-reports"
+import { plateauCommandReport, roverMovementCommandsReport, roverStartingPosCommandReport} from "./commands-reports"
 import { Plateau } from "../src/mars-plateau";
 import { Rover } from "../src/mars-rover";
 

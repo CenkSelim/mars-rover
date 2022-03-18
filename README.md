@@ -41,6 +41,10 @@ does it rotate at a different angle to 90 degrees?
 
 for the plateau shape, this can be controlled by adding/removing objects.
 
+interface Surface for other type of plateaus
+
+interface ExploratoryVehicle for other type of rovers
+
 
 ## The Brief 
 
