@@ -24,6 +24,11 @@ After processing the commands an output of the final position of the rovers will
 
 The command.txt contains the commands which will be process, the commands file needs to be edited for new commands to be executed, at the moment it is designed to take one for the plateau and two commands for two rovers.
 
+Jest test are included, run below to run the tests
+
+```
+npm test
+```
 
 ## Improvements for other vehicles
 
