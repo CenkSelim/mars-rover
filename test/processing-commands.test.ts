@@ -18,3 +18,13 @@ describe('Check plateau command and report', () => {
     });
     
 });
+// 2. Check rover position command and report
+describe('Check rover position command and report', () => {
+    test.each`
+        input	| expected
+        ${""}	| ${" X"}
+    `('checkRoverStartingPos($input)', ({ input, expected }) => {
+        expect(checkRoverStartingPos(input)).toEqual(expected);
+    });
+    
+});
