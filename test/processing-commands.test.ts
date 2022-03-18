@@ -23,6 +23,11 @@ describe('Check rover position command and report', () => {
     test.each`
         input	| expected
         ${""}	| ${" X"}
+        ${"1"}	| ${"1 X"}
+        ${" 1"}	| ${" 1 X"}
+        ${"1 1"}	| ${"1 1 X"}
+        ${"1 1 E"}	| ${"1 1 E √"}
+        ${"99 99 W"}	| ${"99 99 W √"}
     `('roverStartingPosCommandReport($input) ', ({ input, expected }) => {
         expect(roverStartingPosCommandReport(input)).toEqual(expected);
     });
