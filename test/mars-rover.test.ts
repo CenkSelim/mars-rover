@@ -16,22 +16,6 @@ import { Rover } from "../src/mars-rover";
 // ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝👾🌝❌
 // ❌🌝🌝🌝🌝🌝❌   ❌🌝🌝🌝🌝🌝❌
 // ❌❌❌❌❌❌❌   ❌❌❌❌❌❌❌
-//
-describe('Set up plateau', () => {
-        test.each`
-            input | expectedX | expectedY
-            ${"7 9"}	| ${7}  |${9}
-            ${"-2 2"}	| ${4}  |${4}
-            ${"2 -2"}	| ${4}  |${4}
-            ${"100 100"}	| ${100}  |${100}
-            ${"3 3"}	| ${4}  |${4}
-        `('Plateau($input) = $expectedX, $expectedY', ({ input, expectedX, expectedY}) => {
-            let plateau: Plateau  = new Plateau(input);
-            expect(plateau.x).toBe(expectedX);
-            expect(plateau.y).toBe(expectedY);
-        });
-});
-
 // 2. test starting position for rover
 // 3. test rover orientation
 describe('Set up rover starting position', () => {

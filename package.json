@@ -31,7 +31,8 @@
     "url": "https://github.com/CenkSelim/mars-rover/issues"
   },
   "homepage": "https://github.com/CenkSelim/mars-rover#readme",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "eslint": "^8.10.0",

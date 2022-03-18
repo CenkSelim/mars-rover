@@ -4,13 +4,9 @@ import { ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT } fr
 export const plateauCommandReport = (command: string): string => {
     let reportLine: string = "";
     try {
-        if (checkPlateauCommand(command)) reportLine = (`${command} √`) ; 
+        if (checkPlateauCommand(command)) reportLine = formatValid(command) ; 
     } catch (e) { 
-        if (e.message === ERROR_MESSAGE_PLATEAU) {
-            reportLine = (`${command} X`) ;
-        } else {
-            reportLine = e.message;
-        }
+         reportLine = formatError(e, command,ERROR_MESSAGE_PLATEAU);
     }
     return reportLine;
 };
@@ -18,27 +14,40 @@ export const plateauCommandReport = (command: string): string => {
 export const roverStartingPosCommandReport = (command: string): string => {
    let reportLine: string = "";
     try {
-        if (checkRoverStartingPos(command)) reportLine = (`${command} √`) ; 
+        if (checkRoverStartingPos(command)) reportLine = formatValid(command) ; 
     } catch (e) { 
-        if (e.message === ERROR_MESSAGE_ROVER) {
-            reportLine = (`${command} X`) ;
-        } else {
-            reportLine = e.message;
-        }
+        reportLine = formatError(e, command,ERROR_MESSAGE_ROVER);
     }
     return reportLine;
 }
 
 export const roverMovementCommandsReport = (command: string): string => {
-   let reportLine: string = "";
+    let reportLine: string = "";
     try {
-        if (checkRoverMovement(command)) reportLine = (`${command} √`) ; 
+        if (checkRoverMovement(command)) reportLine = formatValid(command) ; 
     } catch (e) { 
-        if (e.message === ERROR_MESSAGE_MOVEMENT) {
-            reportLine = (`${command} X`) ;
+        reportLine = formatError(e, command,ERROR_MESSAGE_MOVEMENT);
+    }
+    return reportLine;
+}
+
+function formatValid(command: string): string {
+    const tick :string = "√";
+    return `${tick} ${command}`;
+}
+
+function formatError(e: any, command: string, message: string): string {
+    let reportLine: string = "";
+    const cross :string = "×";
+    if (e instanceof Error) {
+        if (e.message === message) {
+            reportLine = (`${cross} ${command}`);
         } else {
             reportLine = e.message;
         }
+    } else {
+        reportLine = "Error - see logs";
+        console.log(e);
     }
     return reportLine;
 }

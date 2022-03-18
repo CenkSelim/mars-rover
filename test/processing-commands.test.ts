@@ -10,11 +10,11 @@ import { plateauCommandReport,
 describe('Check plateau command and report', () => {
     test.each`
         input	| expected
-        ${"1 S"}	| ${"1 S X"}
-        ${"1 1"}	| ${"1 1 √"}
-        ${"S 1"}	| ${"S 1 X"}
-        ${"100 100"}	| ${"100 100 √"}
-        ${""}	| ${" X"}
+        ${"1 S"}	| ${"× 1 S"}
+        ${"1 1"}	| ${"√ 1 1"}
+        ${"S 1"}	| ${"× S 1"}
+        ${"100 100"}	| ${"√ 100 100"}
+        ${""}	| ${"× "}
     `('plateauCommandReport($input)', ({ input, expected }) => {
         expect(plateauCommandReport(input)).toEqual(expected);
     });   
@@ -24,12 +24,12 @@ describe('Check plateau command and report', () => {
 describe('Check rover position command and report', () => {
     test.each`
         input	| expected
-        ${""}	| ${" X"}
-        ${"1"}	| ${"1 X"}
-        ${" 1"}	| ${" 1 X"}
-        ${"1 1"}	| ${"1 1 X"}
-        ${"1 1 E"}	| ${"1 1 E √"}
-        ${"99 99 W"}	| ${"99 99 W √"}
+        ${""}	| ${"× "}
+        ${"1"}	| ${"× 1"}
+        ${" 1"}	| ${"×  1"}
+        ${"1 1"}	| ${"× 1 1"}
+        ${"1 1 E"}	| ${"√ 1 1 E"}
+        ${"99 99 W"}	| ${"√ 99 99 W"}
     `('roverStartingPosCommandReport($input) ', ({ input, expected }) => {
         expect(roverStartingPosCommandReport(input)).toEqual(expected);
     });    
@@ -39,11 +39,11 @@ describe('Check rover position command and report', () => {
 describe('Check rover movement and report', () => {
     test.each`
         input	| expected
-        ${""}	| ${" X"}
-        ${"S"}	| ${"S X"}
-        ${"SLMMMM"}	| ${"SLMMMM X"}
-        ${"LMMMM"}	| ${"LMMMM √"}
-        ${"LMMMMRMLLLMR"}	| ${"LMMMMRMLLLMR √"}    
+        ${""}	| ${"× "}
+        ${"S"}	| ${"× S"}
+        ${"SLMMMM"}	| ${"× SLMMMM"}
+        ${"LMMMM"}	| ${"√ LMMMM"}
+        ${"LMMMMRMLLLMR"}	| ${"√ LMMMMRMLLLMR"}    
     `('roverMovementCommandReport($input) ', ({ input, expected }) => {
         expect(roverMovementCommandsReport(input)).toEqual(expected);
     });    
