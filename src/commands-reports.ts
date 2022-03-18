@@ -30,5 +30,15 @@ export const roverStartingPosCommandReport = (command: string): string => {
 }
 
 export const roverMovementCommandsReport = (command: string): string => {
-    return " X";
+   let reportLine: string = "";
+    try {
+        if (checkRoverMovement(command)) reportLine = (`${command} √`) ; 
+    } catch (e) { 
+        if (e.message === ERROR_MESSAGE_MOVEMENT) {
+            reportLine = (`${command} X`) ;
+        } else {
+            reportLine = e.message;
+        }
+    }
+    return reportLine;
 }
