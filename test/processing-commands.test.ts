@@ -15,9 +15,9 @@ describe('Check plateau command and report', () => {
         ${""}	| ${" X"}
     `('plateauCommandReport($input)', ({ input, expected }) => {
         expect(plateauCommandReport(input)).toEqual(expected);
-    });
-    
+    });   
 });
+
 // 2. Check rover position command and report
 describe('Check rover position command and report', () => {
     test.each`
@@ -30,6 +30,15 @@ describe('Check rover position command and report', () => {
         ${"99 99 W"}	| ${"99 99 W √"}
     `('roverStartingPosCommandReport($input) ', ({ input, expected }) => {
         expect(roverStartingPosCommandReport(input)).toEqual(expected);
-    });
-    
+    });    
+});
+
+// 3. Check rover movement and report
+describe('Check rover movement and report', () => {
+    test.each`
+        input	| expected
+        ${""}	| ${" X"}
+    `('roverMovementCommandReport($input) ', ({ input, expected }) => {
+        expect(roverMovementCommandReport(input)).toEqual(expected);
+    });    
 });
