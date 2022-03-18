@@ -10,7 +10,7 @@ describe('Check plateau command and report', () => {
         input	| expected
         ${"1 S"}	| ${"1 S X"}
     `('plateauCommandReport($input)', ({ input, expected }) => {
-        expect(plateauCommandReport(input)).toBe(expected);
+        expect(plateauCommandReport(input)).toEqual(expected);
     });
     
 });
