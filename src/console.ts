@@ -2,7 +2,6 @@ import readline from 'readline';
 
 export function print(str: string): void {
 	console.log(str);
-	console.log();
 }
 
 export function clear(addTopBorder: boolean): void {

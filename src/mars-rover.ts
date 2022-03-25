@@ -33,10 +33,10 @@ export class Rover implements ExploratoryVehicle{
         instructionsList.some(instruction => {           
             switch (instruction) {
                 case "L": // 90 degrees left
-                    this.moveLeft();
+                    this.rotateLeft();
                     break;
                 case "R": // 90 degrees right
-                    this.moveRight();
+                    this.rotateRight();
                     break;
                 case "M": // move forward in direction facing
                     if (this.isNotAValidMove()) return true; // Stop moving
@@ -47,7 +47,7 @@ export class Rover implements ExploratoryVehicle{
         });
         return (`${this.x} ${this.y} ${this.facing}`);
     }
-    moveLeft(): void {
+    rotateLeft(): void {
         switch (this.facing) {
             case "N":
                 this.facing = "W";
@@ -63,7 +63,7 @@ export class Rover implements ExploratoryVehicle{
                 break;
         }
     }
-    moveRight(): void {
+    rotateRight(): void {
         switch (this.facing) {
             case "N":
                 this.facing = "E";

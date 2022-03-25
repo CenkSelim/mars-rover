@@ -1,4 +1,4 @@
-import { validatePlateauCommand , isRoverInBounds, validateRoverMovement } from "../src/validate-commands";
+import { validatePlateauCommand , isRoverInBounds, validateRoverMovement } from "./validate-commands";
 import { ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT } from "./error-messages";
 
 export const plateauCommandReport = (command: string): string => {

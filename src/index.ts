@@ -1,7 +1,7 @@
 
 import { clear, print, askQuestion } from './console';
 import { readFileSync, existsSync } from 'fs';
-import { processingCommands } from "./src/processing-commands";
+import { processingCommands } from "./processing-commands";
 
 const COMMANDS_FILE : string = './commands.txt';
 const NUMBER_OF_COMMAND_ALLOWED : number = 5;

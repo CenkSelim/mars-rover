@@ -1,7 +1,7 @@
-import { startHere } from "../index";
+import { startHere } from "./index";
 import { plateauCommandReport, roverMovementCommandsReport, roverStartingPosCommandReport} from "./commands-reports"
-import { Plateau } from "../src/mars-plateau";
-import { Rover } from "../src/mars-rover";
+import { Plateau } from "./mars-plateau";
+import { Rover } from "./mars-rover";
 
 // 1. Check individual command line
 // 2. Report if in ok or not
