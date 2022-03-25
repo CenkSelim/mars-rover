@@ -9,7 +9,7 @@ export const checkPlateauCommand = (input: string): boolean => {
     return true;
 };
 
-export const checkRoverStartingPos = (input: string): boolean => {
+export const isRoverInBounds = (input: string): boolean => {
     checkXandY(input, 3, ERROR_MESSAGE_ROVER);
     const facing = input.split(' ').map((x) => x)[2];
     if (DIRECTION_FACING.indexOf(facing) === -1)

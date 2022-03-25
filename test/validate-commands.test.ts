@@ -1,5 +1,4 @@
-import { checkPlateauCommand, checkRoverStartingPos, checkRoverMovement } from "../src/validate-commands";
-import { Plateau } from "../src/mars-plateau"
+import { checkPlateauCommand, isRoverInBounds, checkRoverMovement } from "../src/validate-commands";
 import {ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT} from "../src/error-messages"
 
 // Validity of plateau creation and rover position tests in plateau and rover test files
@@ -32,7 +31,7 @@ describe('Input needs to be two numbers and a compass point ie N or E or W or S'
         ${"5 S"}
         ${"1 2 X"}	
     `('checkRoverStartingPos($input)', ({input}) => {
-        expect(() => checkRoverStartingPos(input)).toThrow(ERROR_MESSAGE_ROVER);
+        expect(() => isRoverInBounds(input)).toThrow(ERROR_MESSAGE_ROVER);
     });          
 });
 
