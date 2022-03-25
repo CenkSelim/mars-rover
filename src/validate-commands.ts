@@ -1,22 +1,23 @@
 import { ERROR_MESSAGE_PLATEAU, ERROR_MESSAGE_ROVER, ERROR_MESSAGE_MOVEMENT } from "./error-messages";
 
-const DIRECTION_FACING = ['N', 'E', 'W', 'S']; 
-const MOVING_COMMANDS = ['L', 'F', 'M']; 
+const DIRECTION_FACING = ['N', 'E', 'W', 'S'] as const; 
+export type Orientation = typeof DIRECTION_FACING[number];
+const MOVING_COMMANDS = ['L', 'F', 'M'] as const;  
+export type Command = typeof MOVING_COMMANDS[number];
 
-
-export const checkPlateauCommand = (input: string): boolean => {
-    checkXandY(input, 2, ERROR_MESSAGE_PLATEAU);
+export const validatePlateauCommand = (input: string): boolean => {
+    validateXandY(input, 2, ERROR_MESSAGE_PLATEAU);
     return true;
 };
 
 export const isRoverInBounds = (input: string): boolean => {
-    checkXandY(input, 3, ERROR_MESSAGE_ROVER);
+    validateXandY(input, 3, ERROR_MESSAGE_ROVER);
     const facing = input.split(' ').map((x) => x)[2];
-    if (DIRECTION_FACING.indexOf(facing) === -1)
+    if (!DIRECTION_FACING.includes(facing as Orientation))
         throw new Error(ERROR_MESSAGE_ROVER);
     return true;
 };
-const checkXandY = (input: string, noOfVariables: number, error_message: string): boolean => {
+const validateXandY = (input: string, noOfVariables: number, error_message: string): boolean => {
     if (input === '')
         throw new Error(error_message);
     const size = input.split(' ').map(Number);
@@ -27,7 +28,7 @@ const checkXandY = (input: string, noOfVariables: number, error_message: string)
     return true;
 };
 
-export const checkRoverMovement = (input: string): boolean => {
+export const validateRoverMovement = (input: string): boolean => {
     if (input === '')
         throw new Error(ERROR_MESSAGE_MOVEMENT);
     if (input.match('[^LMR]'))
