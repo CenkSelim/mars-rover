@@ -1,10 +1,9 @@
 
 import { clear, print, askQuestion } from './console';
-import { readFileSync, existsSync } from 'fs';
+import { readFileSync} from 'fs';
 import { processingCommands } from "./processing-commands";
 
-const COMMANDS_FILE : string = './commands.txt';
-const NUMBER_OF_COMMAND_ALLOWED : number = 5;
+const COMMANDS_FILE : string = 'commands.txt';
 
 export function startHere(message: string = ''): void {
 	clear(false);
